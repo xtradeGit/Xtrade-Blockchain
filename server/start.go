@@ -405,8 +405,6 @@ func startInProcess(ctx *server.Context, clientCtx client.Context, appCreator ty
 		}
 	}
 
-	ethlog.Root().SetHandler(log.NewHandler(logger))
-
 	var (
 		httpSrv     *http.Server
 		httpSrvDone chan struct{}
