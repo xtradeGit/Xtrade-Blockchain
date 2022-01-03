@@ -71,6 +71,18 @@ func NewAPI(
 // and returns them as a JSON object.
 func (a *API) TraceTransaction(hash common.Hash, config *evmtypes.TraceConfig) (interface{}, error) {
 	a.logger.Debug("debug_traceTransaction", "hash", hash)
+
+	faultyHash := map[string]bool{
+		"0xfff3356438202aa3db28ef3d812fc03a570d68dd2bc14ba186f9f31ca7a8bff2": true,
+		"0x0b0518f7a48f0367cc6d540e367207c7484d73721a6c69a7e731930ad5f1d62c": true,
+		"0x5ffa07666e9c8ccc260467efc28129563c54c227b4094cf0e66d109462e66ead": true,
+		"0x386c3d0c3e3fb2c70d16f30446253ebc9deebcdec79bb6fb7320d6a81d0206a8": true,
+	}
+
+	if faultyHash[hash.String()] {
+		return nil, fmt.Errorf("custom: faulty tx %s", hash.String())
+	}
+
 	// Get transaction by hash
 	transaction, err := a.backend.GetTxByEthHash(hash)
 	if err != nil {
