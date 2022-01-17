@@ -51,6 +51,9 @@ type Keeper struct {
 	// Tracer used to collect execution traces from the EVM transaction execution
 	tracer string
 
+	// refund gas logic for the EVM
+	refundGas RefundGasFn
+
 	// EVM Hooks for tx post-processing
 	hooks types.EvmHooks
 }

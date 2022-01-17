@@ -31,6 +31,11 @@ func InitGenesis(
 		panic("the EVM module account has not been set")
 	}
 
+	// use default gas logic if not set
+	if !k.HasRefundGasFn() {
+		k.SetRefundGasFn(k.RefundGas())
+	}
+
 	for _, account := range data.Accounts {
 		address := common.HexToAddress(account.Address)
 		accAddress := sdk.AccAddress(address.Bytes())
