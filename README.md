@@ -7,7 +7,7 @@ parent:
   <h1> Ethermint </h1>
 </div>
 
-![banner](docs/ethermint.jpg)
+![banner](docs/xtrade_logo.jpg)
 
 <div align="center">
   <a href="https://github.com/tharsis/ethermint/releases/latest">
