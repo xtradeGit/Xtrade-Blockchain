@@ -3,10 +3,6 @@ parent:
   order: false
 -->
 
-<div align="center">
-  <h1> Ethermint </h1>
-</div>
-
 ![banner](docs/xtrade_logo.jpg)
 
 <div align="center">
